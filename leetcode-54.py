@@ -3,8 +3,6 @@ def spiralOrder(matrix: list[list[int]]) -> list[int]:
     if not matrix:
         return result
 
-    print(f"{matrix}, rows={len(matrix)}, columns={len(matrix[0])}")
-
     top, bottom = 0, len(matrix) - 1
     left, right = 0, len(matrix[0]) - 1
 
@@ -28,8 +26,6 @@ def spiralOrder(matrix: list[list[int]]) -> list[int]:
                 result.append(matrix[i][left])
             left += 1
 
-    print(result)
-    print("")
     return result
 
 
