@@ -38,8 +38,6 @@ def setZeroes1(matrix):
                 rows.add(i)
                 columns.add(j)
 
-    print(rows, columns)
-
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if i in rows or j in columns:
