@@ -4,8 +4,7 @@ def rotate(matrix: list[list[int]]) -> None:
     # Transpose
     for i in range(n):
         for j in range(i + 1, n):
-            matrix[i][j] = matrix[j][i]
-            matrix[j][i] = matrix[i][j]
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
     # Reverse
     for row in matrix:
@@ -13,7 +12,10 @@ def rotate(matrix: list[list[int]]) -> None:
 
     print(matrix)
     print("")
+    return matrix
 
+matrix = [[1,4,7], [2,5,8], [3,6,9]]
+rotate(matrix)
 matrix = [[1,2,3],[4,5,6],[7,8,9]]
 rotate(matrix)
 matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
