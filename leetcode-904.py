@@ -1,26 +1,26 @@
-from collections import defaultdict
-
-
 def totalFruit(fruits: list[int]) -> int:
-    max_length = 0
+    start = 0
+    state = {}
+    max_fruit = 0
 
-    for i in range(len(fruits)):
-        state = defaultdict(int)
-        for j in range(i, len(fruits)):
-            state[fruits[j]] += 1
-            print(state)
-            if len(state) <= 2: # 2 baskets!!!!!
-                max_length = max(max_length, j - i + 1) # j - i +1 = length of the window
-            else:
-                break
+    for end in range(len(fruits)):
+        state[fruits[end]] = state.get(fruits[end], 0) + 1
 
-    return max_length
+        while len(state) > 2:
+            state[fruits[start]] -= 1
+            if state[fruits[start]] == 0:
+                del state[fruits[start]]
+            start += 1
+
+        max_fruit = max(max_fruit, end - start + 1)
+
+    return max_fruit
 
 
 fruits = [1,2,1]
 print(fruits)
 print(totalFruit(fruits))
-fruits = [3, 3, 2, 1, 2, 1, 0]
+fruits = [0,1,2,2]
 print(fruits)
 print(totalFruit(fruits))
 
